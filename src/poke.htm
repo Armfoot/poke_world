@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Poke World</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+<body>
+  <header>
+    <section role="banner" class="poke-banner">
+      <h1>Poke World</h1>
+      <p>You are Ash looking for poke (monsters) in a 2D world.<br>
+        Catch them in unexplored places by going <b>N</b>orth, <b>E</b>ast, <b>S</b>outh or <b>W</b>est.</p>
+    </section>
+  </header>
+  <main>
+    <div class="poke-interaction__box">
+      <h2>Where to go?</h2>
+      <label for="direction-letter">Type <b>n</b>, <b>e</b>, <b>s</b> or <b>w</b> or press any arrow key to move</label>
+      <div class="poke-in__wrapper">
+        <input autofocus id="direction-letter" class="poke-letter__in" type="text" placeholder="S">
+      </div>
+    </div>
+    <div class="poke-location__box">
+      <h2>Map</h2>
+      <div class="poke-map__grid">
+        <div class="poke-map__row">
+          <div class="poke-map__cell"></div>
+        </div>
+      </div>
+      <p class="poke-position__label">Current position:
+        <span class="poke-position__str">0,0</span>
+      </p>
+    </div>
+    <div class="poke-output__box">
+      <h2>Explored path</h2>
+      <div class="poke-path__wrapper">
+        <p class="poke-path__str">Ash hasn't moved yet!</p>
+      </div>
+      <div class="poke-results__wrapper">
+        <div class="poke-result__wrapper">
+          <button id="reset-exploration" class="poke-reset__btn" title="Ash returns to the initial state">Restart!</button>
+        </div>
+        <div class="poke-result__wrapper">
+          <button id="copy-exploration" class="poke-copy__btn" title="The explored path will be copied to the tests input box">Copy</button>
+        </div>
+        <div class="poke-result__wrapper">
+          <h3>Poke</h3>
+          <p class="poke-caught__num">1</p>
+        </div>
+        <div class="poke-result__wrapper">
+          <h3>Moves</h3>
+          <p class="poke-moves__num">0</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="poke-tests__area">
+    <h2>Autopilot</h2>
+    <div class="poke-tests__wrapper">
+      <div class="poke-tests__in">
+        <p>Perform intensive tests at once! Hover each button for description.<br/>
+          The number below is a thousands multiplier for these tests.<br/>
+          <small><b>High multipliers take minutes</b> to complete and slow down manual discovery.<br/>
+          Visual map will only be updated with the final position (if in range).</small></p>
+        <div class="poke-tests__btns">
+          <input id="multiplier" type="tel" maxlength="4" value="20" placeholder="20">
+          <button id="test-n" title="Ash moves x thousand times North">&uarr;</button>
+          <button id="test-dsw" title="Ash moves x thousand times in a South-West diagonal pattern">&swarr;</button>
+          <button id="test-ew" title="Ash moves x thousand times East then West">&rlarr;</button>
+          <button id="test-nesw" title="Ash moves in an x thousand times sided-square">&#9723;</button>
+          <button id="test-dnesdwn" title="Ash moves x thousand times in a North-East diagonal pattern then South then in a North-West diagonal pattern">&#9665;</button>
+          <button id="test-2ndwsdse" title="Ash moves x*2 thousand times North then x thousand times in a South-West diagonal pattern then in a South-East diagonal pattern">&#5865;</button>
+          <button id="test-senw2senw" title="Ash moves in an x thousand times sided-square and then in an x*2 thousand times sided-square">&#9712;</button>
+        </div>
+        <br/>
+        <div class="poke-custom-test__area">
+          <label for="auto-path">Copy + paste your test below</label>
+          <textarea id="auto-path" class="poke-custom-test__in" placeholder="Example: NEEEW"></textarea>
+          <button id="test-custom" title="Input string as path">Run</button>
+          <input id="super-move" type="checkbox">
+          <label for="super-move">Activate sligthly-faster-experimental-movement mode</label>
+        </div>
+      </div>
+      <div class="poke-tests__out">
+        <p>Tests log:</p>
+        <div class="poke-tests-log__wrapper">
+          <p class="poke-tests-log__str">No tests have been run yet!</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <footer>
+    <p>Idea by <a href="https://premium-minds.com" target="_blank">Premium Minds</a>, banner art by <a href="http://www.newgrounds.com/art/view/animate/pokemon" target="_blank">AniMate</a><br>
+      Source code in <a href="https://github.com/Armfoot/poke_world" title="Poke World by Armfoot">Github</a><p>
+  </footer>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.poke-map__grid {
+  height: 213px;
+  width: 213px;
+  border: 3px double black;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.poke-map__row {
+  display: flex;
+}
+
+.poke-map__cell {
+  width: 10px;
+  height: 10px;
+  background-color: $green-light;
+  border-left: 1px dotted $grey-7;
+  border-bottom: 1px dotted $grey-7;
+  box-sizing: border-box;
+
+  @include animated-transition(0.3s);
+}
+
+// interactive styles
+.visited-bg {
+  background-color: $yellow-light;
+
+  &.current-bg {
+    background-color: $red-medium;
+  }
+}

@@ -1,0 +1,66 @@
+// vars
+$txtarea-w: 97%;
+$txtarea-h: 40px;
+$logarea-w: 37%;
+$logtext-h: 20rem;
+$space-pad: 1.25rem;
+
+.poke-tests__wrapper {
+  @extend .flex-between-spaced;
+}
+
+.poke-tests__btns {
+  border-bottom: 1px solid $grey-7;
+  display: flex;
+  flex-wrap: wrap;
+
+  & input {
+    width: 1.8rem;
+    padding: 0.3rem;
+    margin: 0 0.35rem $space-pad 0;
+  }
+
+  & button {
+    margin: 0 0.35rem $space-pad 0;
+    padding: 0.3rem auto;
+
+    @include font-size(1);
+    @include btn-colors($red-dark, $red-medium, $red-mlight, $red-transparent);
+  }
+}
+
+.poke-tests__in {
+  padding-right: $space-pad;
+}
+
+.poke-custom-test__in {
+  display: block;
+  width: $txtarea-w;
+  height: $txtarea-h;
+  overflow-y: scroll;
+  resize: none;
+  padding: $space-pad/4;
+  margin-bottom: $space-pad;
+}
+
+.poke-tests__out {
+  border-left: 1px solid $grey-e;
+  flex-grow: 2;
+  padding-left: $space-pad;
+  width: $logarea-w;
+}
+
+.poke-tests-log__wrapper {
+  overflow-y: scroll;
+  height: $logtext-h;
+}
+
+.poke-tests-log__str {
+  @extend .output-text;
+
+  white-space: pre-line;
+}
+
+.poke-custom-test__area button {
+  @include btn-colors($blue-dark, $blue-medium, $blue-mlight, $blue-transparent);
+}

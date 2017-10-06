@@ -1,0 +1,128 @@
+$bkpoint-s: 458px;
+$bkpoint-l: 800px;
+
+@import 'banner';
+
+main {
+  @extend .flex-between-spaced;
+  @extend .sides-pad;
+
+  flex: 1;
+
+  @media (max-width: $bkpoint-s) {
+    justify-content: center;
+  }
+}
+
+aside {
+  @extend .sides-pad;
+
+  flex: 1;
+
+  @media (max-width: $bkpoint-s) {
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+footer {
+  @extend .sides-pad;
+
+  border-top: 1px solid $grey-7;
+  align-self: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.poke-interaction__box,
+.poke-output__box {
+  width: 220px;
+}
+
+.poke-location__box {
+  @media (min-width: $bkpoint-s) {
+    padding: 0 30px;
+  }
+}
+
+.poke-path__wrapper {
+  height: 123px;
+  overflow-y: scroll;
+  border: 1px solid $grey-e;
+}
+
+.poke-path__str {
+  overflow-wrap: break-word;
+
+  @include font-size(0.8);
+}
+
+.poke-results__wrapper {
+  @include flex-space(center);
+
+  text-align: center;
+
+  & .poke-result__wrapper {
+    margin: 1rem 0 0;
+    padding: 0 1rem;
+    width: 4.5rem;
+
+    &:last-of-type {
+      border-left: 1px solid $grey-e;
+    }
+
+    & button {
+      @include btn-colors($blue-dark, $blue-medium, $blue-mlight, $blue-transparent);
+
+      width: 4.6rem;
+      padding: 0.25rem 0.5rem;
+    }
+
+    & p {
+      margin: 0.4rem 0;
+    }
+  }
+}
+
+.poke-in__wrapper {
+  // TODO::: mobile
+  text-align: center;
+  padding: 51px 0;
+  margin-top: 10px;
+  background-color: $grey-e;
+}
+
+.poke-letter__in {
+  width: 75px;
+  height: 70px;
+  font-size: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+label {
+  display: block;
+
+  input + & {
+    display: inline;
+  }
+}
+
+.poke-path__str,
+.poke-position__str {
+  @extend .output-text;
+}
+
+.poke-position__label {
+  @include font-size(1);
+
+  margin-top: 0.6rem;
+  font-weight: bold;
+}
+
+@import 'map';
+@import 'tests';
+

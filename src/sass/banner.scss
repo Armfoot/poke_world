@@ -1,0 +1,37 @@
+.poke-banner {
+  text-align: center;
+  height: 200px;
+  color: white;
+
+  h1 {
+    margin: 0;
+    padding: 0 30px;
+
+    @include font-size(4);
+
+    @media (max-width: $bkpoint-s - 1) {
+      @include font-size(1.7);
+
+      padding-top: 40px;
+    }
+  }
+
+  p {
+    color: #ddd;
+    font-style: italic;
+
+    @include font-size(1);
+
+    @media (max-width: $bkpoint-s - 1) {
+      @include font-size(0.7);
+    }
+  }
+
+  @media (min-width: $bkpoint-l) {
+    background: url('media/313728_pokeballs-AniMate.png') no-repeat center center;
+  }
+
+  @media (max-width: $bkpoint-l - 1) {
+    background: url('media/313728_pokeballs-AniMate_s.png') no-repeat center center;
+  }
+}

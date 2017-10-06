@@ -1,0 +1,35 @@
+{
+    "name": "poke-world",
+    "version": "1.0.0",
+    "description": "Ash explores a 2D world catching poke (monsters).",
+    "author": "Armfoot",
+    "license": "Apache 2.0",
+    "private": true,
+    "scripts": {
+        "postinstall": "npm run build",
+        "build": "npm-run-all lint css",
+        "css": "npm-run-all css:precompile css:autoprefix",
+        "css:autoprefix": "postcss --use autoprefixer --replace src/global.css",
+        "css:precompile": "node-sass --include-path src/vendor --output-style expanded --output src src/sass/global.scss",
+        "lint": "npm-run-all --parallel lint:*",
+        "lint:css": "stylelint \"src/**/*.scss\"",
+        "lint:js": "eslint --ignore-pattern vendor src",
+        "lint:html": "html-validator --verbose --file src/poke.htm",
+        "watch:css": "npm run css && onchange \"src/**/*.scss\" -- npm-run-all css",
+        "watch:lint": "npm run lint && onchange \"src/**/*.{scss|html|js}\" -- npm run lint"
+    },
+    "devDependencies": {
+        "autoprefixer": "6.7.5",
+        "eslint": "3.16.1",
+        "html-validator-cli": "3.1.0",
+        "node-sass": "4.5.0",
+        "npm-run-all": "4.0.1",
+        "onchange": "3.2.1",
+        "postcss-cli": "2.6.0",
+        "stylelint": "7.9.0",
+        "stylelint-config-standard": "16.0.0"
+    },
+    "engines": {
+        "node": "^6.11"
+    }
+}
